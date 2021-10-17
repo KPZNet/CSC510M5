@@ -1,0 +1,106 @@
+
+street_of
+    foreach
+	kfacts.street_of($person, $street)
+    assert
+	kfacts.person_street($person, $street, street)
+
+how_related_person_street
+    foreach
+	kfacts.person_street($person, $street, $p1_type)
+	$relationship = $p1_type
+    assert
+        kfacts.how_related($person, $street, $relationship)
+
+job_of
+    foreach
+	kfacts.job_of($person, $job)
+    assert
+	kfacts.person_job($person, $job, job)
+
+how_related_person_job
+    foreach
+	kfacts.person_job($person, $job, $p1_type)
+	$relationship = $p1_type
+    assert
+        kfacts.how_related($person, $job, $relationship)
+
+job_activity
+    foreach
+	kfacts.job_activity($job, $env)
+    assert
+	kfacts.job_environment($job, $env, jobenvironment)
+
+how_related_job_environment
+    foreach
+	kfacts.job_environment($job, $env, $p1_type)
+	$relationship = $p1_type
+    assert
+        kfacts.how_related($job, $env, $relationship)
+
+state_of
+    foreach
+	kfacts.state_of($person, $state)
+    assert
+	kfacts.person_state($person, $state, state)
+
+how_related_person_state
+    foreach
+	kfacts.person_state($person, $state, $p1_type)
+	$relationship = $p1_type
+    assert
+        kfacts.how_related($person, $state, $relationship)
+
+state_weath
+    foreach
+	kfacts.state_weath($state, $weather)
+    assert
+	kfacts.state_weather($state, $weather, weather)
+
+how_related_state_weather
+    foreach
+	kfacts.state_weather($state, $weather, $p1_type)
+	$relationship = $p1_type
+    assert
+        kfacts.how_related($state, $weather, $relationship)
+
+neighbors
+    foreach
+	kfacts.street_of($brother1, $street)
+	kfacts.street_of($brother2, $street)
+	check $brother1 != $brother2
+    assert
+	kfacts.neighbors($brother1, $brother2, neighbors)
+
+how_related_neighbors
+    foreach
+	kfacts.neighbors($person1, $person2, $p1_type)
+    assert
+        kfacts.how_related($person1, $person2, $p1_type)
+
+weather_for_state
+    foreach
+	kfacts.state_of($person, $state)
+	kfacts.state_weath($state, $weather)
+    assert
+	kfacts.weather_for_state($person, $weather, likes)
+
+how_related_weather_for_state
+    foreach
+	kfacts.weather_for_state($person, $weather, $p1_type)
+    assert
+        kfacts.how_related($person, $weather, $p1_type)
+
+environment_for_job
+    foreach
+	kfacts.job_of($person, $job)
+	kfacts.job_activity($job, $env)
+    assert
+	kfacts.jobenv_for_person($person, $env, work_environment)
+
+how_related_jobenv_for_person
+    foreach
+	kfacts.jobenv_for_person($person, $env, $p1_type)
+    assert
+        kfacts.how_related($person, $env, $p1_type)
+

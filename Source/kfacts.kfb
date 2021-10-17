@@ -1,0 +1,41 @@
+
+
+street_of(ken, ridgedale)
+street_of(stella, ridgedale)
+street_of(katie, ridgedale)
+
+street_of(ces, winona)
+street_of(cole, winona)
+
+street_of(bigby, central)
+street_of(roger, central)
+
+job_of(ken, sw_engineer)
+job_of(stella, sales)
+job_of(katie, sales)
+
+job_of(ces, teacher)
+job_of(cole, driver)
+
+job_of(bigby, driver)
+job_of(roger, teacher)
+
+state_of(ken, california)
+state_of(stella, california)
+state_of(katie, california)
+
+state_of(ces, alaska)
+state_of(cole, alaska)
+
+state_of(bigby, oregon)
+state_of(roger, oregon)
+
+state_weath(california, sunny)
+state_weath(alaska, cold)
+state_weath(oregon, raining)
+
+job_activity(driver, outdoors)
+job_activity(teacher, indoors)
+job_activity(sw_engineer, indoors)
+job_activity(sales, inout_doors)
+
